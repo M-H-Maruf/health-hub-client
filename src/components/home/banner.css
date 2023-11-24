@@ -1,28 +1,44 @@
-.swiper-slide{
-    display: flex;
+.swiper-slide {
+  display: flex;
 }
 
-.swiper-button-next, .swiper-button-prev, .swiper-button-disabled {
-    color:#00d7c0;
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-button-disabled {
+  color: #00d7c0;
 }
 
-/* Banner.css */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
 
 .banner-slide {
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .dark-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

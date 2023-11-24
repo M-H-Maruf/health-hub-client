@@ -1,12 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import 'swiper/css/effect-fade';
+import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./banner.css";
 
-import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Particle from "./../utils/Particle";
 
 const stories = [
   {
@@ -45,7 +46,6 @@ const Banner = () => {
   return (
     <div className="pt-20 h-screen bg-black">
       <Swiper
-      effect={'fade'}
         centeredSlides={true}
         autoplay={{
           delay: 3000,
@@ -53,31 +53,41 @@ const Banner = () => {
         }}
         spaceBetween={30}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="h-full flex justify-center items-center"
       >
-        {stories.map((story) => (
-          <SwiperSlide
-            className="h-full flex justify-center items-center"
-            key={story.id}
-          >
-            <div
-              className="banner-slide w-screen"
-              style={{ backgroundImage: `url(${story.imageUrl})` }}
+        <Particle></Particle>
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center z-20">
+          {stories.map((story, idx) => (
+            <SwiperSlide
+              key={idx}
+              className="h-full flex justify-center items-center"
             >
-              <div className="dark-overlay">
-                <div className="text-center flex flex-col justify-center items-center gap-10 max-w-xs md:max-w-lg lg:max-w-xl">
-                  <h3 className="text-4xl text-accent font-orbitron font-semibold">
-                    {story.title}
-                  </h3>
-                  <p className="text-white/70 text-lg font-semibold">
-                    {story.description}
-                  </p>
+              <div
+                className="banner-slide w-screen"
+                style={{ backgroundImage: `url(${story.imageUrl})` }}
+              >
+                <div className="dark-overlay  z-10">
+                  <div className="text-center flex flex-col justify-center items-center gap-10 max-w-xs md:max-w-lg lg:max-w-xl">
+                    <h3
+                      data-aos="fade-up"
+                      className="text-4xl text-accent font-orbitron font-semibold"
+                    >
+                      {story.title}
+                      <span className="animate-blink font-orbitron">_</span>
+                    </h3>
+                    <p
+                      data-aos="fade-up"
+                      className="text-white/70 text-lg font-semibold"
+                    >
+                      {story.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
+        </div>
       </Swiper>
     </div>
   );
