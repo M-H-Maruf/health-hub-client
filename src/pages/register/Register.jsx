@@ -1,10 +1,14 @@
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-    return (
-        <div>
-            This is Register
-        </div>
-    );
+  return (
+    <div>
+      <Helmet>
+        <title>Health Hub | Register</title>
+      </Helmet>
+      This is Register
+    </div>
+  );
 };
 
 export default Register;
