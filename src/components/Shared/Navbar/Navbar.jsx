@@ -55,7 +55,7 @@ const Navbar = () => {
   };
 
   return (
-    <div data-aos="fade-down" className="navbar bg-black/90 px-4 fixed z-50">
+    <div data-aos="fade-down" className="navbar bg-black/90 px-4 h-20 fixed z-50">
       <div className="navbar-start">
         <details className="dropdown duration-200 lg:hidden">
           <summary
@@ -92,16 +92,16 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end flex gap-2 lg:gap-3">
-        <div className="btn btn-outline border-2 btn-accent group">
-          <Link className="group-hover:text-white" to="/login">
+        <Link className=" group" to="/login">
+          <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
             LOG IN
-          </Link>
-        </div>
-        <div className="btn btn-outline border-2 btn-accent group">
-          <Link className="group-hover:text-white" to="/register">
+          </div>
+        </Link>
+        <Link className="group" to="/register">
+          <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
             REGISTER
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
