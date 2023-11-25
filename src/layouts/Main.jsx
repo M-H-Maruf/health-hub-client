@@ -21,7 +21,7 @@ const Main = () => {
       <Navbar />
       <motion.div
       className=""
-      // key={location.pathname}
+      key={location.pathname}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
