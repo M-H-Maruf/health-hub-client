@@ -35,12 +35,13 @@ const PopularCampCard = ({camp}) => {
               <p className="mb-1">{`Venue: ${camp?.venueLocation}`}</p>
               <p className="mb-1">{`Services Provided : ${camp?.specializedServices}`}</p>
               <p className="mb-4">{`Professionals : ${camp?.healthcareProfessionals}`}</p>
+              <p className="mb-4 text-lg">{`Participants : ${camp?.peopleAttended}`}</p>
               <div className="mt-4">
                 <Link to={`/camp/${camp._id}`}>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="px-4 py-2 bg-accent text-white rounded mr-2"
+                    className="px-4 py-2 bg-accent text-white/95 rounded mr-2"
                   >
                     Details
                   </motion.button>
