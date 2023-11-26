@@ -29,7 +29,7 @@ const CampCard = ({camp}) => {
                   ${camp.campFees}
                 </span>
               </div>
-              <h2 className="text-2xl min-h-16 text-white/95 uppercase font-extrabold mb-2">
+              <h2 className="text-2xl min-h-16 text-white/95 uppercase font-extrabold min-h-[64px] mb-2">
                 {camp?.campName}
               </h2>
               <p className="mb-1">{`Venue: ${camp?.venueLocation}`}</p>

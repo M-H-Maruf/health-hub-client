@@ -17,3 +17,9 @@ export const getLeastPopularCamps = async () => {
     const { data } = await axiosSecure(`/least-popular-camps`)
     return data
 }
+
+// Fetch all upcoming camps from db
+export const getAllUpcomingCamps = async () => {
+    const { data } = await axiosSecure('/upcoming-camps')
+    return data
+}
