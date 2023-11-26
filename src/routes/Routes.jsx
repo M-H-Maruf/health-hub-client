@@ -7,6 +7,7 @@ import Register from './../pages/register/Register';
 import Dashboard from '../layouts/Dashboard'
 import AvailableCamps from '../pages/availableCamps/AvailableCamps'
 import Contact from '../pages/contact/Contact'
+import CampDetails from './../pages/campDetails/CampDetails';
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/camp-details/:campId',
-        element: <AvailableCamps />,
+        element: <CampDetails />,
       },
       {
         path: '/contact',

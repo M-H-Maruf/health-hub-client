@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <div data-aos="fade-up" className="z-40 relative">
+    <div data-aos="zoom-in" className="z-40 relative">
       <footer className="leading-5 font-semibold grid grid-cols-1 lg:grid-cols-3 gap-10 justify-around items-center p-10 bg-[#0c0c0c] text-white/70">
         <aside className="flex flex-col gap-5 items-center text-center justify-center">
           <Link to="/">

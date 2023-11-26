@@ -5,6 +5,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import CampCard from "../shared/CampCard";
+import { Link } from "react-router-dom";
 
 const PopularCamps = () => {
   const [sortAsc, setSortAsc] = useState(false);
@@ -39,6 +40,17 @@ const PopularCamps = () => {
           {popularCamps.map((camp) => (
             <CampCard key={camp._id} camp={camp} />
           ))}
+        </div>
+        <div className="w-full flex justify-center items-center p-8">
+          <Link to={'available-camps'}>
+          <motion.button
+            onClick={toggleSort}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="px-4 py-2 bg-accent text-white/95 text-2xl font-bold flex justify-center items-center gap-2 rounded mt-4 relative z-30"
+          >
+            SEE ALL CAMPS
+          </motion.button></Link>
         </div>
       </Section>
     </div>
