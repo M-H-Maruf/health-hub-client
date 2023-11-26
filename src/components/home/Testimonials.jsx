@@ -36,12 +36,12 @@ const Testimonials = () => {
       >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial._id}>
-              <div className="bg-black/50 text-center max-w-xl mx-auto p-6 rounded-lg shadow-md">
+              <div data-aos="fade-up" className="bg-black/50 text-center max-w-xl mx-auto p-6 rounded-lg shadow-md">
                 <p className="text-white text-3xl font-bold font-teko uppercase mb-2">{testimonial.campName}</p>
                 <p className="text-white/70 text-lg mb-4">
                   {testimonial.feedback}
                 </p>
-                <p className="text-yellow-500/90">
+                <p className="text-accent/90">
                   {`Rating: ${testimonial.rating}/5`}
                 </p>
                 <p className="text-white/50">

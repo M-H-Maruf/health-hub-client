@@ -44,7 +44,7 @@ const stories = [
 
 const Banner = () => {
   return (
-    <div className="pt-20 h-screen bg-black">
+    <div id="banner" className="pt-20 h-screen bg-black">
       <Swiper
         centeredSlides={true}
         autoplay={{
