@@ -71,7 +71,7 @@ const AvailableCamps = () => {
         <div className="hero bg-black/50 mt-10 rounded-lg px-4 md:px-8 lg:px-16 py-4 md:py-8 lg:py-16 ">
           <Tilt className="w-full" scale={1.05} tiltEnable={false}>
             <div className="hero-content bg-black/50 py-4 md:py-8 lg:py-16  px-4 md:px-8 lg:px-16  w-full rounded-lg grid gap-16 justify-center items-center lg:grid-cols-2 grid-cols-1">
-              <div data-aos="flip-right" className="mx-auto w-fit">
+              <div className="mx-auto w-fit">
                 <Lottie
                   style={{ width: "100%", height: "100%" }}
                   animationData={data}
