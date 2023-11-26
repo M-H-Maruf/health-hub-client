@@ -1,15 +1,15 @@
 import Section from "./../utils/Section";
 import { useQuery } from "@tanstack/react-query";
 import { getLeastPopularCamps, getPopularCamps } from "../../api/camps";
-import PopularCampCard from "./PopularCampCard";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import CampCard from "../shared/CampCard";
 
 const PopularCamps = () => {
   const [sortAsc, setSortAsc] = useState(false);
   const { data: popularCamps = [] } = useQuery({
-    queryKey: ["popular-camps", sortAsc],
+    queryKey: ["popularCamps", sortAsc],
     queryFn: async () => {
       return sortAsc ? getLeastPopularCamps() : getPopularCamps();
     } ,
@@ -20,11 +20,10 @@ const PopularCamps = () => {
   };
 
   return (
-    <div className="bg-black/40 pb-32">
+    <div className="bg-black/40">
       <Section
         heading={"Popular Camps"}
         subHeading={"Explore impactful health events"}
-        color={true}
       >
         <div className="w-full flex justify-center items-center p-8">
           <motion.button
@@ -38,7 +37,7 @@ const PopularCamps = () => {
         </div>
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 bg-black/40 p-8 rounded-lg">
           {popularCamps.map((camp) => (
-            <PopularCampCard key={camp._id} camp={camp} />
+            <CampCard key={camp._id} camp={camp} />
           ))}
         </div>
       </Section>

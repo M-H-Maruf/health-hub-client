@@ -23,6 +23,10 @@ export const router = createBrowserRouter([
         element: <AvailableCamps />,
       },
       {
+        path: '/camp-details/:campId',
+        element: <AvailableCamps />,
+      },
+      {
         path: '/contact',
         element: <Contact />,
       },

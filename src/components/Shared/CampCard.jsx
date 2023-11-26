@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Tilt from "react-parallax-tilt";
 
-const PopularCampCard = ({camp}) => {
+const CampCard = ({camp}) => {
     return (
         <div data-aos="fade-up" className="relative z-20 h-full" >
         <Tilt className="h-full" scale={1.03}>
@@ -26,7 +26,7 @@ const PopularCampCard = ({camp}) => {
                   {new Date(camp.scheduledDateTime).toLocaleDateString('en-GB')}
                 </span>
                 <span className='text-white'>
-                  {camp.campFees}
+                  ${camp.campFees}
                 </span>
               </div>
               <h2 className="text-2xl min-h-16 text-white/95 uppercase font-extrabold mb-2">
@@ -37,7 +37,7 @@ const PopularCampCard = ({camp}) => {
               <p className="mb-4">{`Professionals : ${camp?.healthcareProfessionals}`}</p>
               <p className="mb-4 text-lg">{`Participants : ${camp?.peopleAttended}`}</p>
               <div className="mt-4">
-                <Link to={`/camp/${camp._id}`}>
+                <Link to={`/camp-details/${camp._id}`}>
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -54,4 +54,4 @@ const PopularCampCard = ({camp}) => {
     );
 };
 
-export default PopularCampCard;
+export default CampCard;

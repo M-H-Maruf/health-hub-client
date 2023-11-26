@@ -11,7 +11,7 @@ const Section = ({ children, heading, subHeading, color }) => {
         >
           <span
             className={`${
-              color ? "text-white/70" : "text-black"
+              color ? "text-white/70" : "text-white"
             } opacity-80 font-bold uppercase`}
           >
             {subHeading}
