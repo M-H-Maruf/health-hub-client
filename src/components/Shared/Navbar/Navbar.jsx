@@ -79,7 +79,7 @@ const Navbar = () => {
           >
             <img
               className="h-10 rounded-full w-10 bg-accent"
-              src="logo.png"
+              src="/logo.png"
               alt="logo"
             />
             <p className=" hidden md:flex">

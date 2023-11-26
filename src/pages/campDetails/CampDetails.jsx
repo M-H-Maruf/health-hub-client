@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import Particle from "../../components/utils/Particle";
 import Section from "../../components/utils/Section";
+import JoinNowButton from './../../components/shared/JoinNowButton';
 
 const CampDetails = () => {
   const camp = useLoaderData();
@@ -59,13 +60,7 @@ const CampDetails = () => {
                       Details
                     </motion.button>
                   </Link>
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-accent hover:text-white/90 hover:bg-accent px-4 py-2 border-2 border-accent rounded"
-                  >
-                    Join Camp
-                  </motion.button>
+                  <JoinNowButton camp_Id={camp._id}></JoinNowButton>
                 </div>
               </div>
             </div>

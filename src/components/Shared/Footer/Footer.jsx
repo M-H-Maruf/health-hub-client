@@ -10,7 +10,7 @@ const Footer = () => {
           <Link to="/">
             <img
               className="h-24 cursor-pointer w-24 bg-blog-primary rounded-full"
-              src="logo.png"
+              src="/logo.png"
               alt="logo"
             />
           </Link>
