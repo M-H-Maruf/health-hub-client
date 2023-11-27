@@ -9,11 +9,11 @@ import AvailableCamps from "../pages/availableCamps/AvailableCamps";
 import Contact from "../pages/contact/Contact";
 import CampDetails from "./../pages/campDetails/CampDetails";
 import PrivateRoute from "./PrivateRoute";
-import Profile from './../components/dashboard/participant/Profile';
-import RegisteredCamps from './../components/dashboard/participant/RegisteredCamps';
-import PaymentHistory from './../components/dashboard/participant/PaymentHistory';
-import FeedbackRating from './../components/dashboard/participant/FeedbackRating';
-import Payment from './../components/dashboard/participant/Payment/Payment';
+import Profile from "./../components/dashboard/participant/Profile";
+import RegisteredCamps from "./../components/dashboard/participant/RegisteredCamps";
+import PaymentHistory from "./../components/dashboard/participant/PaymentHistory";
+import FeedbackRating from "./../components/dashboard/participant/FeedbackRating";
+import Payment from "./../components/dashboard/participant/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -76,8 +76,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'payment',
-        element: <Payment></Payment>
+        path: "payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/registered/${params.id}`),
       },
       {
         path: "payment-history",

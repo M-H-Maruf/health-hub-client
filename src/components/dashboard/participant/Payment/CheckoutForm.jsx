@@ -3,35 +3,23 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import axiosSecure from "../../../../api";
-import { getRegisteredCamps } from "../../../../api/camps";
-import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../../hooks/useAuth";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ camp }) => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
-  const { data: camps = [], refetch } = useQuery({
-    queryKey: ["registered-camps", user.email],
-    queryFn: () => getRegisteredCamps(user.email),
-  });
   const navigate = useNavigate();
-
-  const totalPrice = camps.reduce((total, camp) => total + camp.campFees, 0);
-
   useEffect(() => {
-    if (totalPrice > 0) {
-      axiosSecure
-        .post("/create-payment-intent", { price: totalPrice })
-        .then((res) => {
-          console.log(res.data.clientSecret);
-          setClientSecret(res.data.clientSecret);
-        });
-    }
-  }, [totalPrice]);
+    axiosSecure
+      .post("/create-payment-intent", { price: camp.campFees })
+      .then((res) => {
+        setClientSecret(res.data.clientSecret);
+      });
+  }, [camp.campFees]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -59,7 +47,6 @@ const CheckoutForm = () => {
       setError("");
     }
 
-    // confirm payment
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -79,27 +66,25 @@ const CheckoutForm = () => {
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
 
-        // now save the payment in the database
         const payment = {
           email: user.email,
-          price: totalPrice,
+          price: camp.campFees,
           transactionId: paymentIntent.id,
           date: new Date(),
-          campIds: camps.map((item) => item._id),
+          campId: camp._id,
         };
 
         const res = await axiosSecure.post("/payments", payment);
         console.log("payment saved", res.data);
-        refetch();
-        if (res.data?.paymentResult?.insertedId) {
+        if (res.data?.paymentResult?.campId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Thank you for the taka paisa",
+            title: "Thank you for the Payment",
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/dashboard/paymentHistory");
+          navigate("/dashboard/payment-history");
         }
       }
     }
@@ -112,27 +97,23 @@ const CheckoutForm = () => {
           style: {
             base: {
               fontSize: "16px",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
-              },
+              fontWeight: "700",
+              color: "#fff",
+              "::placeholder": { fontWeight: "700", color: "#fff" },
             },
-            invalid: {
-              color: "#9e2146",
-            },
+            invalid: { fontWeight: "700", color: "#DC143C" },
           },
         }}
       />
       <button
-        className="btn btn-sm btn-primary my-4"
+        className="btn btn-md btn-accent text-white/80 my-4 text-lg font-semibold"
         type="submit"
-        // disabled={!stripe || !clientSecret}
       >
         Pay
       </button>
-      <p className="text-red-600">{error}</p>
+      <p className="text-red-700 text-lg font-semibold">{error}</p>
       {transactionId && (
-        <p className="text-green-600"> Your transaction id: {transactionId}</p>
+        <p className="text-white text-lg font-semibold"> Your transaction id: {transactionId}</p>
       )}
     </form>
   );

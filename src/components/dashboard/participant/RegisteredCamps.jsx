@@ -39,7 +39,7 @@ const RegisteredCamps = () => {
                 <td>{camp.confirmationStatus}</td>
                 {camp.paymentStatus == "pending" ? (
                   <td>
-                    <Link to={"/dashboard/payment"}>
+                    <Link to={`/dashboard/payment/${camp._id}`}>
                     <button className="btn btn-outline btn-accent">Pay</button></Link>
                   </td>
                 ) : (<td>
