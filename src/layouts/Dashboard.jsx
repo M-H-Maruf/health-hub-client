@@ -4,9 +4,26 @@ import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 import useRole from "../hooks/useRole";
 import ParticipantMenu from "../components/dashboard/menu/ParticipantMenu";
-
+import { getUser } from "../api/users";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 const Dashboard = () => {
-  const { user, logOut } = useAuth();
+  const { logOut, user: currentUser } = useAuth();
+  const { data: user = {} } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => getUser(currentUser.email),
+  });
+  useEffect(() => {
+    Aos.init({
+      easing: "ease-out-quart",
+      delay: 0,
+      duration: 750,
+    });
+  }, []);
+  console.log(user);
+
   const [role] = useRole();
   const handleSignOut = () => {
     logOut()

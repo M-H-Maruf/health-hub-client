@@ -31,7 +31,8 @@ const SignUp = () => {
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const userInfo = {
-            name: data.name,
+            displayName: data.name,
+            photoURL: data.photoURL,
             email: data.email,
             role: "participant",
           };

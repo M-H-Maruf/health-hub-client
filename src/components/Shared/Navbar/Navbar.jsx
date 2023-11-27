@@ -176,7 +176,7 @@ const Navbar = () => {
               </div>
             </Link>
             <Link className="group" to="/register">
-              <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
+              <div className="btn ml-4 btn-outline border-2 btn-accent group-hover:text-white">
                 REGISTER
               </div>
             </Link>
