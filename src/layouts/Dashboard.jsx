@@ -53,9 +53,18 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 min-h-full flex flex-col justify-between bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <div className="">
+              <Link to="/">
+                <img
+                  className="h-24 mx-auto cursor-pointer w-24 bg-blog-primary rounded-full"
+                  src="/logo.png"
+                  alt="logo"
+                />
+              </Link>
+            </div>
+            <div className="mx-auto text-center">
               {role === "participant" && <ParticipantMenu />}
             </div>
-            <div className="">
+            <div className="mx-auto">
               <div className="rounded-lg h-full z-10">
                 <div className="">
                   <div className="divider"></div>

@@ -9,6 +9,10 @@ import AvailableCamps from "../pages/availableCamps/AvailableCamps";
 import Contact from "../pages/contact/Contact";
 import CampDetails from "./../pages/campDetails/CampDetails";
 import PrivateRoute from "./PrivateRoute";
+import Profile from './../components/dashboard/participant/Profile';
+import RegisteredCamps from './../components/dashboard/participant/RegisteredCamps';
+import PaymentHistory from './../components/dashboard/participant/PaymentHistory';
+import FeedbackRating from './../components/dashboard/participant/FeedbackRating';
 
 export const router = createBrowserRouter([
   {
@@ -55,34 +59,34 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "/participant-profile",
+        path: "participant-profile",
         element: (
           <PrivateRoute>
-            <AvailableCamps />
+            <Profile />
           </PrivateRoute>
         ),
       },
       {
-        path: "/registered-camps",
+        path: "registered-camps",
         element: (
           <PrivateRoute>
-            <AvailableCamps />
+            <RegisteredCamps />
           </PrivateRoute>
         ),
       },
       {
-        path: "/payment-history",
+        path: "payment-history",
         element: (
           <PrivateRoute>
-            <AvailableCamps />
+            <PaymentHistory />
           </PrivateRoute>
         ),
       },
       {
-        path: "/feedback-and-ratings",
+        path: "feedback-and-ratings",
         element: (
           <PrivateRoute>
-            <AvailableCamps />
+            <FeedbackRating />
           </PrivateRoute>
         ),
       },
