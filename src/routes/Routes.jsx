@@ -13,6 +13,7 @@ import Profile from './../components/dashboard/participant/Profile';
 import RegisteredCamps from './../components/dashboard/participant/RegisteredCamps';
 import PaymentHistory from './../components/dashboard/participant/PaymentHistory';
 import FeedbackRating from './../components/dashboard/participant/FeedbackRating';
+import Payment from './../components/dashboard/participant/Payment/Payment';
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
             <RegisteredCamps />
           </PrivateRoute>
         ),
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
       },
       {
         path: "payment-history",
