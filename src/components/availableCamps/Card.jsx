@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
+import JoinNowButton from './../shared/JoinNowButton';
 
 const Card = ({ camp }) => {
   return (
@@ -43,13 +44,7 @@ const Card = ({ camp }) => {
                   Details
                 </motion.button>
               </Link>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-accent hover:text-white/90 hover:bg-accent px-4 py-2 border-2 border-accent rounded"
-              >
-                Join Camp
-              </motion.button>
+              <JoinNowButton camp_Id={camp._id}></JoinNowButton>
             </div>
           </div>
         </div>

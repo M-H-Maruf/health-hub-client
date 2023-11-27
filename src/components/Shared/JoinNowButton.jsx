@@ -219,7 +219,7 @@ const JoinNowButton = ({ camp_Id }) => {
             </form>
             <button
               onClick={handleCloseModal}
-              className="btn btn-sm btn-circle btn-primary z-50 absolute right-2 top-2"
+              className="btn btn-sm btn-circle btn-accent btn-outline z-50 absolute right-2 top-2"
             >
               ✕
             </button>
