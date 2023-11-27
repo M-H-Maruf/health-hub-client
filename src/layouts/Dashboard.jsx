@@ -2,9 +2,12 @@ import { Link, Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import useRole from "../hooks/useRole";
+import ParticipantMenu from "../components/dashboard/menu/ParticipantMenu";
 
 const Dashboard = () => {
   const { user, logOut } = useAuth();
+  const [role] = useRole();
   const handleSignOut = () => {
     logOut()
       .then((result) => {
@@ -50,17 +53,12 @@ const Dashboard = () => {
           <ul className="menu p-4 w-80 min-h-full flex flex-col justify-between bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <div className="">
-              <li>
-                <a>Sidebar Item 1</a>
-              </li>
-              <li>
-                <a>Sidebar Item 2</a>
-              </li>
+              {role === "participant" && <ParticipantMenu />}
             </div>
             <div className="">
               <div className="rounded-lg h-full z-10">
                 <div className="">
-                <div className="divider"></div>
+                  <div className="divider"></div>
                   <h3 className="text-lg font-teko text-black font-bold mb-2">
                     {user.displayName}
                   </h3>
