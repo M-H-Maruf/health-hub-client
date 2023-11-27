@@ -15,9 +15,8 @@ const RegisteredCamps = () => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
+        <table className="table text-white/80 font-semibold text-lg text-center uppercase">
+          <thead className="text-xl font-teko uppercase text-center text-black/70">
             <tr>
               <th>Camp Name</th>
               <th>Date and Time</th>
