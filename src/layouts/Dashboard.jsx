@@ -10,9 +10,10 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 const Dashboard = () => {
-  const { logOut, user: currentUser } = useAuth();
+  const { logOut, user: currentUser, update } = useAuth();
+  
   const { data: user = {} } = useQuery({
-    queryKey: ["user"],
+    queryKey: ["user",update],
     queryFn: () => getUser(currentUser.email),
   });
   useEffect(() => {
