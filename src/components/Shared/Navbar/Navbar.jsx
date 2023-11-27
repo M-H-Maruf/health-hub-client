@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const {user, logOut} = useAuth();
+  const { user, logOut } = useAuth();
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
@@ -86,7 +86,10 @@ const Navbar = () => {
   };
 
   return (
-    <div data-aos="fade-down" className="navbar bg-black/90 px-4 h-20 fixed z-50">
+    <div
+      data-aos="fade-down"
+      className="navbar bg-black/90 px-4 h-20 fixed z-50"
+    >
       <div className="navbar-start">
         <details className="dropdown duration-200 lg:hidden">
           <summary
@@ -123,57 +126,62 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end flex gap-2 lg:gap-3">
-      {user ? (
-            <div className="flex gap-4">
-              
-              <div className="dropdown dropdown-end hover:dropdown-open">
-                <label tabIndex={0} className="">
-                <img className="h-12 rounded-full"
-        src={imageError ? 'https://i.ibb.co/MVzMp2j/alternative-image.jpg' : user?.photoURL}
-        alt="User Profile"
-        onError={handleImageError}
-      />
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content z-[1] p-5 menu w-64 relative"
-                >
-                  <div className="flex justify-center items-center p-2 font-bold w-fit rounded bg-black/50 shadow-2xl absolute right-0">
-                    <div data-aos="flip-up" className="rounded-lg h-full z-10">
-                      <div className="">
-                        <h3 className="text-lg font-teko text-white font-bold mb-2">
-                          {user.displayName}
-                        </h3>
-                        <p className="text-white/70 font-bold">{user.email}</p>
-                        <div className="divider"></div>
-                        <Link onClick={handleSignOut} className=" group" to="/">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="btn btn-outline border-2 btn-accent group-hover:text-white"
-                >
-                  SIGN OUT
-                </motion.div>
-              </Link>
-                      </div>
+        {user ? (
+          <div className="flex gap-4">
+            <div className="dropdown dropdown-end hover:dropdown-open">
+              <label tabIndex={0} className="">
+                <img
+                  className="h-12 rounded-full"
+                  src={
+                    imageError
+                      ? "https://i.ibb.co/MVzMp2j/alternative-image.jpg"
+                      : user?.photoURL
+                  }
+                  alt="User Profile"
+                  onError={handleImageError}
+                />
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] p-5 menu w-64 relative"
+              >
+                <div className="flex justify-center items-center p-2 font-bold w-fit rounded bg-black/50 shadow-2xl absolute right-0">
+                  <div data-aos="flip-up" className="rounded-lg h-full z-10">
+                    <div className="">
+                      <h3 className="text-lg font-teko text-white font-bold mb-2">
+                        {user.displayName}
+                      </h3>
+                      <p className="text-white/70 font-bold">{user.email}</p>
+                      <div className="divider"></div>
+                      <Link onClick={handleSignOut} className=" group" to="/">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="btn btn-outline border-2 btn-accent group-hover:text-white"
+                        >
+                          SIGN OUT
+                        </motion.div>
+                      </Link>
                     </div>
                   </div>
-                </ul>
-              </div>
+                </div>
+              </ul>
             </div>
-          ) : (<div className="">
+          </div>
+        ) : (
+          <div className="">
             <Link className=" group" to="/login">
-          <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
-            LOG IN
+              <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
+                LOG IN
+              </div>
+            </Link>
+            <Link className="group" to="/register">
+              <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
+                REGISTER
+              </div>
+            </Link>
           </div>
-        </Link>
-        <Link className="group" to="/register">
-          <div className="btn btn-outline border-2 btn-accent group-hover:text-white">
-            REGISTER
-          </div>
-        </Link></div>
-          )}
-        
+        )}
       </div>
     </div>
   );
