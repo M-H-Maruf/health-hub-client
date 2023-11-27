@@ -6,9 +6,9 @@ export const getAllCamps = async () => {
     return data
 }
 
-// Fetch all camps from db
-export const getCamp = async (_id) => {
-    const { data } = await axiosSecure(`/camp-details/${_id}`)
+// Fetch registered camps from db
+export const getRegisteredCamps = async (email) => {
+    const { data } = await axiosSecure(`participant/${email}`)
     return data
 }
 

@@ -3,8 +3,8 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
-const JoinNowButton = ({ camp_Id }) => {
-  const {user} = useAuth();
+const JoinNowButton = ({ camp }) => {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -13,9 +13,8 @@ const JoinNowButton = ({ camp_Id }) => {
     address: "",
     emergencyContact: "",
     healthInfo: "",
-    
   });
-  console.log(camp_Id);
+  const camp_Id = camp._id;
   const handleCloseModal = () => {
     const modal = document.getElementById("participant_modal");
     if (modal) {
@@ -28,7 +27,7 @@ const JoinNowButton = ({ camp_Id }) => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-      userEmail : user.email,
+      userEmail: user.email,
     }));
   };
 
@@ -43,8 +42,10 @@ const JoinNowButton = ({ camp_Id }) => {
         },
         body: JSON.stringify({
           campId: camp_Id,
+          campData: camp,
           participantData: formData,
-          status: "pending",
+          confirmationStatus: "pending",
+          paymentStatus: "pending",
         }),
       });
 
@@ -101,7 +102,8 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="name"
                   name="name"
                   value={formData.name}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 />
               </div>
@@ -118,7 +120,8 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="age"
                   name="age"
                   value={formData.age}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 />
               </div>
@@ -135,7 +138,8 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="phone"
                   name="phone"
                   value={formData.phone}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 />
               </div>
@@ -151,10 +155,11 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="gender"
                   name="gender"
                   value={formData.gender}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   className="mt-1 select p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 >
-                  <option value="male" selected>Male</option>
+                  <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </select>
@@ -171,7 +176,8 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="address"
                   name="address"
                   value={formData.address}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   rows="3"
                   className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 ></textarea>
@@ -189,7 +195,8 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="emergencyContact"
                   name="emergencyContact"
                   value={formData.emergencyContact}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 />
               </div>
@@ -205,7 +212,8 @@ const JoinNowButton = ({ camp_Id }) => {
                   id="healthInfo"
                   name="healthInfo"
                   value={formData.healthInfo}
-                  onChange={handleChange} required
+                  onChange={handleChange}
+                  required
                   rows="3"
                   className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                 ></textarea>

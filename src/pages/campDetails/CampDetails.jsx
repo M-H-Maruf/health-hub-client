@@ -60,7 +60,7 @@ const CampDetails = () => {
                       Details
                     </motion.button>
                   </Link>
-                  <JoinNowButton camp_Id={camp._id}></JoinNowButton>
+                  <JoinNowButton camp={camp}></JoinNowButton>
                 </div>
               </div>
             </div>
