@@ -8,6 +8,7 @@ import Dashboard from '../layouts/Dashboard'
 import AvailableCamps from '../pages/availableCamps/AvailableCamps'
 import Contact from '../pages/contact/Contact'
 import CampDetails from './../pages/campDetails/CampDetails';
+import PrivateRoute from './PrivateRoute'
 
 export const router = createBrowserRouter([
   {
@@ -21,11 +22,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/available-camps',
-        element: <AvailableCamps />,
+        element: <PrivateRoute><AvailableCamps /></PrivateRoute>,
       },
       {
         path: '/camp-details/:campId',
-        element: <CampDetails />,
+        element: <PrivateRoute><CampDetails /></PrivateRoute>,
         loader:  ({params})=> fetch(`http://localhost:5000/camp-details/${params.campId}`),
       },
       {
@@ -36,5 +37,5 @@ export const router = createBrowserRouter([
   },
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
-  { path: '/dashboard', element: <Dashboard /> },
+  { path: '/dashboard', element: <PrivateRoute><Dashboard /></PrivateRoute> },
 ])

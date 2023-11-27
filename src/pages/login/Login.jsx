@@ -9,10 +9,10 @@ import { useEffect } from "react";
 import Particle from "../../components/utils/Particle";
 
 const Login = () => {
-  const { signInWithEmail } = useAuth();
-
-  const navigate = useNavigate();
+  const { signIn } = useAuth();
   const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
   useEffect(() => {
     Aos.init({
       easing: "ease-out-quart",
@@ -61,7 +61,7 @@ const Login = () => {
       return;
     }
 
-    signInWithEmail(email, password)
+    signIn(email, password)
       .then(() => {
         Swal.fire({
           icon: "success",
@@ -71,7 +71,7 @@ const Login = () => {
           timer: 2500,
         });
 
-        navigate(location?.state ? location.state : "/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         let errorSignIn = "";
