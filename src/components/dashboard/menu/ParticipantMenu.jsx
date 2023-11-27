@@ -4,7 +4,7 @@ const ParticipantMenu = () => {
   return (
     <div>
       <div className="text-accent font-semibold opacity-80 flex flex-col gap-5">
-        <Link to="participant-profile">
+        <Link to="/dashboard">
           <motion.p whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             PROFILE
           </motion.p>

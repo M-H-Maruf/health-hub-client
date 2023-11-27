@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "participant-profile",
+        path: "/dashboard",
         element: (
           <PrivateRoute>
             <Profile />

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import JoinNowButton from './../shared/JoinNowButton';
 
 const Card = ({ camp }) => {
   return (
@@ -44,7 +43,6 @@ const Card = ({ camp }) => {
                   Details
                 </motion.button>
               </Link>
-              <JoinNowButton camp_Id={camp._id}></JoinNowButton>
             </div>
           </div>
         </div>

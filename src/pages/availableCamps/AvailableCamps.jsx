@@ -6,8 +6,8 @@ import Particle from './../../components/utils/Particle';
 import Card from "../../components/availableCamps/Card";
 
 const AvailableCamps = () => {
-  const { data: upcomingCamps = [] } = useQuery({
-    queryKey: ["upcomingCamps"],
+  const { data: camps = [] } = useQuery({
+    queryKey: ["camps"],
     queryFn: getAllCamps ,
     refetchInterval: 10000,
   });
@@ -21,7 +21,7 @@ const AvailableCamps = () => {
       >
         
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 bg-black/40 p-8 rounded-lg">
-          {upcomingCamps.map((camp) => (
+          {camps.map((camp) => (
             <Card key={camp._id} camp={camp} />
           ))}
         </div>

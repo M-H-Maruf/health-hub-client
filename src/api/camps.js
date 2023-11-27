@@ -6,6 +6,12 @@ export const getAllCamps = async () => {
     return data
 }
 
+// Fetch all camps from db
+export const getCamp = async (_id) => {
+    const { data } = await axiosSecure(`/camp-details/${_id}`)
+    return data
+}
+
 // Fetch popular camps
 export const getPopularCamps = async () => {
     const { data } = await axiosSecure(`/popular-camps`)

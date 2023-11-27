@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const JoinNowButton = ({ camp_Id }) => {
+  const {user} = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -13,7 +15,7 @@ const JoinNowButton = ({ camp_Id }) => {
     healthInfo: "",
     
   });
-
+  console.log(camp_Id);
   const handleCloseModal = () => {
     const modal = document.getElementById("participant_modal");
     if (modal) {
@@ -26,13 +28,14 @@ const JoinNowButton = ({ camp_Id }) => {
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-      
+      userEmail : user.email,
     }));
   };
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      console.log(camp_Id);
       const response = await fetch("http://localhost:5000/participant", {
         method: "POST",
         headers: {
