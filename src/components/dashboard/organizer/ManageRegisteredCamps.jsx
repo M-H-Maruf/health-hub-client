@@ -1,16 +1,54 @@
 import { useQuery } from "@tanstack/react-query";
 import { getRegisteredCamps } from "../../../api/camps";
 import useAuth from "./../../../hooks/useAuth";
+import axios from "axios";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ManageRegisteredCamps = () => {
+  const [update, setUpdate] = useState(false);
   const { user } = useAuth();
   const { data: camps = [] } = useQuery({
-    queryKey: ["registered-camps", user.email],
+    queryKey: ["registered-camps", user.email, update],
     queryFn: () => getRegisteredCamps(user.email),
     refetchInterval: 10000,
   });
 
-  const handleConfirm = () => {};
+  const handleConfirm = async (id) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/participant-confirm/${id}`
+      );
+      if (response.status === 200) {
+        setUpdate(!update);
+        Swal.fire({
+          title: "Success!",
+          text: "Confirmation Successful!",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "Error!",
+          text: "Confirmation Failed!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
+    } catch (error) {
+      console.error("Error adding camp:", error);
+      Swal.fire({
+        title: "Error!",
+        text: "Something went wrong!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  };
+
+  const handleCancel = async (id) => {
+    console.log(id);
+  };
 
   return (
     <div>
@@ -43,15 +81,24 @@ const ManageRegisteredCamps = () => {
                   <td>
                     <button
                       className="btn btn-outline btn-accent"
-                      onClick={handleConfirm}
+                      onClick={() => handleConfirm(camp._id)}
                     >
                       Confirm
+                    </button>
+                  </td>
+                ) : camp.paymentStatus == "pending" ? (
+                  <td>
+                    <button
+                      className="btn btn-outline btn-accent"
+                      onClick={() => handleCancel(camp._id)}
+                    >
+                      Cancel
                     </button>
                   </td>
                 ) : (
                   <td>
                     <button className="btn btn-outline btn-accent" disabled>
-                      Confirm
+                      Confirmed
                     </button>
                   </td>
                 )}
