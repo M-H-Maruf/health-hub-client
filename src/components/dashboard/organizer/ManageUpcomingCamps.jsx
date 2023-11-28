@@ -22,21 +22,21 @@ const ManageCamps = () => {
           setUpdate(!update);
           Swal.fire({
             title: "Success!",
-            text: "Camp Deleted Successfully!",
+            text: "Upcoming Camp Deleted Successfully!",
             icon: "success",
             confirmButtonText: "OK",
           });
         } else {
           Swal.fire({
             title: "Error!",
-            text: "Failed To Delete Camp!",
+            text: "Failed To Delete Upcoming Camp!",
             icon: "error",
             confirmButtonText: "OK",
           });
         }
       })
       .catch((error) => {
-        console.error("Error deleting camp:", error);
+        console.error("Error deleting upcoming camp:", error);
         Swal.fire({
           title: "Error!",
           text: "Something went wrong!",

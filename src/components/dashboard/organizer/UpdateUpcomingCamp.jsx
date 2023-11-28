@@ -4,7 +4,7 @@ import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 const UpdateUpcomingCamp = () => {
-  const { _id:campId, ...camp } = useLoaderData();
+  const { _id: campId, ...camp } = useLoaderData();
   console.log(campId);
   const [formData, setFormData] = useState({
     ...camp,
@@ -44,20 +44,20 @@ const UpdateUpcomingCamp = () => {
 
         Swal.fire({
           title: "Success!",
-          text: "Camp Updated Successfully!",
+          text: "Upcoming Camp Updated Successfully!",
           icon: "success",
           confirmButtonText: "OK",
         });
       } else {
         Swal.fire({
           title: "Error!",
-          text: "Failed To Update Camp!",
+          text: "Failed To Update Upcoming Camp!",
           icon: "error",
           confirmButtonText: "OK",
         });
       }
     } catch (error) {
-      console.error("Error adding camp:", error);
+      console.error("Error adding upcoming camp:", error);
       Swal.fire({
         title: "Error!",
         text: "Something went wrong!",
@@ -72,7 +72,10 @@ const UpdateUpcomingCamp = () => {
         data-aos="zoom-in"
         className="bg-black/50 rounded-lg w-full max-w-4xl m-8 md:m-24 p-6 md:p-10"
       >
-        <form onSubmit={handleUpdateUpcomingCamp} className="flex flex-col gap-8">
+        <form
+          onSubmit={handleUpdateUpcomingCamp}
+          className="flex flex-col gap-8"
+        >
           <div>
             <label
               htmlFor="campName"
@@ -261,7 +264,7 @@ const UpdateUpcomingCamp = () => {
 
           <div className="form-control -mt-6">
             <button className="btn glass text-white hover:text-accent">
-              Update Camp
+              Update Upcoming Camp
             </button>
           </div>
         </form>

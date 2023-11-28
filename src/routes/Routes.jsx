@@ -161,7 +161,8 @@ export const router = createBrowserRouter([
             <UpdateCamp />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/camp-details/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/camp-details/${params.id}`),
       },
       {
         path: "update-upcoming-camp/:id",
@@ -170,7 +171,8 @@ export const router = createBrowserRouter([
             <UpdateUpcomingCamp />
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/upcoming-camps/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/upcoming-camps/${params.id}`),
       },
       {
         path: "update-registered-camp/:id",
