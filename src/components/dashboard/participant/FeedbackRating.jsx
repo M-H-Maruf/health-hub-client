@@ -140,7 +140,8 @@ const FeedbackRating = () => {
                             <input
                               type="number"
                               id="rating"
-                              name="rating" placeholder="Out of 5"
+                              name="rating"
+                              placeholder="Out of 5"
                               value={formData.rating}
                               onChange={handleChange}
                               className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
@@ -158,7 +159,8 @@ const FeedbackRating = () => {
                               type="text"
                               id="feedback"
                               name="feedback"
-                              value={formData.feedback} placeholder="Your feedback"
+                              value={formData.feedback}
+                              placeholder="Your feedback"
                               onChange={handleChange}
                               className="mt-1 p-2 border border-gray-300 bg-white/20 text-accent rounded-md w-full"
                             />
