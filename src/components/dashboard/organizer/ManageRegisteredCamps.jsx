@@ -47,7 +47,33 @@ const ManageRegisteredCamps = () => {
   };
 
   const handleCancel = async (id) => {
-    console.log(id);
+    try {
+        const response = await axios.delete(`http://localhost:5000/participants/${id}`);
+        if (response.status === 200) {
+            setUpdate(!update);
+            Swal.fire({
+              title: "Success!",
+              text: "Cancellation Successful!",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          } else {
+            Swal.fire({
+              title: "Error!",
+              text: "Cancellation Failed!",
+              icon: "error",
+              confirmButtonText: "OK",
+            });
+          }
+        } catch (error) {
+          console.error("Error adding camp:", error);
+          Swal.fire({
+            title: "Error!",
+            text: "Something went wrong!",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
   };
 
   return (
