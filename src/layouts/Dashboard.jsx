@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import ProfessionalMenu from "../components/dashboard/menu/ProfessionalMenu";
+import OrganizerMenu from "../components/dashboard/menu/OrganizerMenu";
 const Dashboard = () => {
   const { logOut, user: currentUser, update } = useAuth();
   
@@ -24,7 +25,6 @@ const Dashboard = () => {
       duration: 750,
     });
   }, []);
-  console.log(user);
 
   const [role] = useRole();
   const handleSignOut = () => {
@@ -83,6 +83,7 @@ const Dashboard = () => {
             <div className="mx-auto text-center">
               {role === "participant" && <ParticipantMenu />}
               {role === "professional" && <ProfessionalMenu />}
+              {role === "organizer" && <OrganizerMenu />}
             </div>
             <div className="mx-auto">
               <div className="rounded-lg h-full z-10">
