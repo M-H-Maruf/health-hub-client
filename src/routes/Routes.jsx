@@ -15,6 +15,11 @@ import PaymentHistory from "./../components/dashboard/participant/PaymentHistory
 import FeedbackRating from "./../components/dashboard/participant/FeedbackRating";
 import Payment from "./../components/dashboard/participant/Payment/Payment";
 import AcceptedCamps from "../components/dashboard/professional/AcceptedCamps";
+import AddCamp from "./../components/dashboard/organizer/AddCamp";
+import ManageCamps from "./../components/dashboard/organizer/ManageCamps";
+import ManageRegisteredCamps from "./../components/dashboard/organizer/ManageRegisteredCamps";
+import AddUpcomingCamp from "./../components/dashboard/organizer/AddUpcomingCamp";
+import ManageUpcomingCamps from "./../components/dashboard/organizer/ManageUpcomingCamps";
 
 export const router = createBrowserRouter([
   {
@@ -103,6 +108,46 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AcceptedCamps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "add-camp",
+        element: (
+          <PrivateRoute>
+            <AddCamp />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-camps",
+        element: (
+          <PrivateRoute>
+            <ManageCamps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-registered-camps",
+        element: (
+          <PrivateRoute>
+            <ManageRegisteredCamps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "add-upcoming-camp",
+        element: (
+          <PrivateRoute>
+            <AddUpcomingCamp />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "manage-upcoming-camps",
+        element: (
+          <PrivateRoute>
+            <ManageUpcomingCamps />
           </PrivateRoute>
         ),
       },
