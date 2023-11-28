@@ -14,6 +14,7 @@ import RegisteredCamps from "./../components/dashboard/participant/RegisteredCam
 import PaymentHistory from "./../components/dashboard/participant/PaymentHistory";
 import FeedbackRating from "./../components/dashboard/participant/FeedbackRating";
 import Payment from "./../components/dashboard/participant/Payment/Payment";
+import AcceptedCamps from "../components/dashboard/professional/AcceptedCamps";
 
 export const router = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <FeedbackRating />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "accepted-camps",
+        element: (
+          <PrivateRoute>
+            <AcceptedCamps />
           </PrivateRoute>
         ),
       },

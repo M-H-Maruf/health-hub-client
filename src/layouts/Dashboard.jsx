@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import ProfessionalMenu from "../components/dashboard/menu/ProfessionalMenu";
 const Dashboard = () => {
   const { logOut, user: currentUser, update } = useAuth();
   
@@ -81,6 +82,7 @@ const Dashboard = () => {
             </div>
             <div className="mx-auto text-center">
               {role === "participant" && <ParticipantMenu />}
+              {role === "professional" && <ProfessionalMenu />}
             </div>
             <div className="mx-auto">
               <div className="rounded-lg h-full z-10">
