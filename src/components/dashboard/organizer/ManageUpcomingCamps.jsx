@@ -70,7 +70,7 @@ const ManageCamps = () => {
                 <td>{camp.campFees}</td>
 
                 <td className="flex gap-4">
-                  <Link to={`/dashboard/update-camp/${camp._id}`}>
+                  <Link to={`/dashboard/update-upcoming-camp/${camp._id}`}>
                     <button className="btn btn-outline btn-accent">
                       <FaEdit className="text-2xl"></FaEdit>
                     </button>
