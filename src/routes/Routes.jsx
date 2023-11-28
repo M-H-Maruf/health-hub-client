@@ -20,6 +20,8 @@ import ManageCamps from "./../components/dashboard/organizer/ManageCamps";
 import ManageRegisteredCamps from "./../components/dashboard/organizer/ManageRegisteredCamps";
 import AddUpcomingCamp from "./../components/dashboard/organizer/AddUpcomingCamp";
 import ManageUpcomingCamps from "./../components/dashboard/organizer/ManageUpcomingCamps";
+import UpdateCamp from "../components/dashboard/organizer/UpdateCamp";
+import UpdateRegisteredCamps from "../components/dashboard/organizer/UpdateRegisteredCamps";
 
 export const router = createBrowserRouter([
   {
@@ -148,6 +150,23 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ManageUpcomingCamps />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update-camp/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateCamp />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/camp-details/${params.id}`),
+      },
+      {
+        path: "update-registered-camp/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateRegisteredCamps />
           </PrivateRoute>
         ),
       },
