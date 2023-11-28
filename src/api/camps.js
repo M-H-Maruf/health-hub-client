@@ -12,6 +12,12 @@ export const getRegisteredCamps = async (email) => {
     return data
 }
 
+// Fetch registered camps from db
+export const getAttendedCamps = async (email) => {
+    const { data } = await axiosSecure(`participant-attended/${email}`)
+    return data
+}
+
 // Fetch popular camps
 export const getPopularCamps = async () => {
     const { data } = await axiosSecure(`/popular-camps`)
