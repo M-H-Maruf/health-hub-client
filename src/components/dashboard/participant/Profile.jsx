@@ -54,7 +54,7 @@ const Profile = () => {
       if (response.ok) {
         setUpdate(!update);
         setImageError(!imageError);
-        const modal = document.getElementById("participant_modal");
+        const modal = document.getElementById("participant_update_modal");
         if (modal) {
           modal.close();
         }
@@ -127,7 +127,7 @@ const Profile = () => {
                   <div className="modal-box bg-black/50 p-4">
                     <div className="relative">
                       <h2 className="text-2xl font-bold mb-4 text-white/90">
-                        Participant Registration
+                        Profile Update
                       </h2>
                       <form onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -135,7 +135,7 @@ const Profile = () => {
                             htmlFor="displayName"
                             className="block text-sm font-medium text-white/70"
                           >
-                            Name
+                            Name:
                           </label>
                           <input
                             type="text"
