@@ -3,13 +3,48 @@ import { getAllCamps } from "../../../api/camps";
 import useAuth from "./../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useState } from "react";
 const ManageCamps = () => {
   const { user } = useAuth();
+  const [update, setUpdate] = useState(false);
   const { data: camps = [] } = useQuery({
-    queryKey: ["camps", user.email],
+    queryKey: ["camps", user.email, update],
     queryFn: () => getAllCamps(user.email),
-    refetchInterval: 10000,
   });
+
+  const handleDelete = (campId) => {
+    axios
+      .delete(`http://localhost:5000/camps/${campId}`)
+      .then((response) => {
+        if (response.status === 200) {
+          setUpdate(!update);
+          Swal.fire({
+            title: "Success!",
+            text: "Camp Deleted Successfully!",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "Failed To Delete Camp!",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting camp:", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Something went wrong!",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
+  };
 
   return (
     <div>
@@ -41,7 +76,10 @@ const ManageCamps = () => {
                     </button>
                   </Link>
 
-                  <button className="btn btn-outline btn-accent">
+                  <button
+                    className="btn btn-outline btn-accent"
+                    onClick={() => handleDelete(camp._id)}
+                  >
                     <FaTrashAlt className="text-2xl"></FaTrashAlt>
                   </button>
                 </td>
