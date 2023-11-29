@@ -4,10 +4,17 @@ import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useQuery } from "@tanstack/react-query";
+import { getUser } from "../../../api/users";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, logOut } = useAuth();
+  const { user: currentUser, logOut } = useAuth();
+
+  const { data: user = {} } = useQuery({
+    queryKey: ["user"],
+    queryFn: () => getUser(currentUser.email),
+  });
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
@@ -131,7 +138,7 @@ const Navbar = () => {
             <div className="dropdown dropdown-end hover:dropdown-open">
               <label tabIndex={0} className="">
                 <img
-                  className="h-12 rounded-full"
+                  className="h-12 w-12 object-cover object-center rounded-full"
                   src={
                     imageError
                       ? "https://i.ibb.co/MVzMp2j/alternative-image.jpg"

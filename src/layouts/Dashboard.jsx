@@ -12,6 +12,8 @@ import "aos/dist/aos.css";
 import ProfessionalMenu from "../components/dashboard/menu/ProfessionalMenu";
 import OrganizerMenu from "../components/dashboard/menu/OrganizerMenu";
 import { Helmet } from "react-helmet-async";
+import { MdOutlineMenu } from "react-icons/md";
+
 const Dashboard = () => {
   const { logOut, user: currentUser, update } = useAuth();
   
@@ -59,13 +61,16 @@ const Dashboard = () => {
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
-          <Outlet></Outlet>
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
+            className="btn mr-auto m-8 mb-9 btn-outline btn-accent drawer-button lg:hidden"
           >
-            Open drawer
+            <MdOutlineMenu className="text-3xl"></MdOutlineMenu>
           </label>
+          <div className="p-4 w-full flex justify-center items-center">
+
+          <Outlet></Outlet>
+          </div>
         </div>
         <div className="drawer-side">
           <label
