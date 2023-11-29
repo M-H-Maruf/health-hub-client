@@ -11,7 +11,7 @@ const AvailableCamps = () => {
   const form = useRef();
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch(`/contact.json`)
+    fetch(`https://gist.githubusercontent.com/M-H-Maruf/3f8753a4cd504d5234521d200faa43b5/raw/6b50aea6af5bcfec22c083633183ec9715dfcc30/contact.json`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
