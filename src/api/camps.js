@@ -21,18 +21,18 @@ export const getAttendedCamps = async (email) => {
 
 // Fetch popular camps
 export const getPopularCamps = async () => {
-    const { data } = await axios.get(`http://localhost:5000/popular-camps`)
+    const { data } = await axios.get(`https://health-hub-server.vercel.app/popular-camps`)
     return data
 }
 
 // Fetch least popular camps
 export const getLeastPopularCamps = async () => {
-    const { data } = await axios.get(`http://localhost:5000/least-popular-camps`)
+    const { data } = await axios.get(`https://health-hub-server.vercel.app/least-popular-camps`)
     return data
 }
 
 // Fetch all upcoming camps from db
 export const getAllUpcomingCamps = async () => {
-    const { data } = await axios.get('http://localhost:5000/upcoming-camps')
+    const { data } = await axios.get('https://health-hub-server.vercel.app/upcoming-camps')
     return data
 }

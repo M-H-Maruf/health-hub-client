@@ -17,7 +17,7 @@ const ManageRegisteredCamps = () => {
   const handleConfirm = async (id) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/participant-confirm/${id}`
+        `https://health-hub-server.vercel.app/participant-confirm/${id}`
       );
       if (response.status === 200) {
         setUpdate(!update);
@@ -48,7 +48,7 @@ const ManageRegisteredCamps = () => {
 
   const handleCancel = async (id) => {
     try {
-        const response = await axios.delete(`http://localhost:5000/participants/${id}`);
+        const response = await axios.delete(`https://health-hub-server.vercel.app/participants/${id}`);
         if (response.status === 200) {
             setUpdate(!update);
             Swal.fire({

@@ -30,7 +30,7 @@ const AddCamp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/camps",
+        "https://health-hub-server.vercel.app/camps",
         formData
       );
 

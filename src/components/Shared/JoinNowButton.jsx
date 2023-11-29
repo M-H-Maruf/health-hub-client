@@ -35,7 +35,7 @@ const JoinNowButton = ({ camp }) => {
     try {
       e.preventDefault();
       console.log(camp_Id);
-      const response = await fetch("http://localhost:5000/participant", {
+      const response = await fetch("https://health-hub-server.vercel.app/participant", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

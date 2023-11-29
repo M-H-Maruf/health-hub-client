@@ -1,8 +1,7 @@
 import axios from 'axios'
-// import { clearCookie } from './auth'
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://health-hub-server.vercel.app",
 })
 
 // intercept response and check for unauthorized responses.

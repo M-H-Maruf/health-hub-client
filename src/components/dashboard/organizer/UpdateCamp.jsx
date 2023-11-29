@@ -23,7 +23,7 @@ const UpdateCamp = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/camps/${campId}`,
+        `https://health-hub-server.vercel.app/camps/${campId}`,
         formData
       );
 

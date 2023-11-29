@@ -16,7 +16,7 @@ const ManageCamps = () => {
 
   const handleDelete = (campId) => {
     axios
-      .delete(`http://localhost:5000/camps/${campId}`)
+      .delete(`https://health-hub-server.vercel.app/camps/${campId}`)
       .then((response) => {
         if (response.status === 200) {
           setUpdate(!update);

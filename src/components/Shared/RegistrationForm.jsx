@@ -27,7 +27,7 @@ const RegistrationForm = ({ closeModal }) => {
       // Add logic to submit data to the backend (API endpoint for registration)
 
       // Assuming you have an API endpoint /participant
-      const response = await fetch('http://localhost:5000/participant', {
+      const response = await fetch('https://health-hub-server.vercel.app/participant', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

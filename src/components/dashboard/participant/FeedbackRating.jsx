@@ -38,7 +38,7 @@ const FeedbackRating = () => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        "http://localhost:5000/testimonials",
+        "https://health-hub-server.vercel.app/testimonials",
         formData
       );
       if (response.status == 200) {

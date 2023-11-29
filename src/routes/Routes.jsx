@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/camp-details/${params.campId}`),
+          fetch(`https://health-hub-server.vercel.app/camp-details/${params.campId}`),
       },
       {
         path: "/contact",
@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/registered/${params.id}`),
+          fetch(`https://health-hub-server.vercel.app/registered/${params.id}`),
       },
       {
         path: "payment-history",
@@ -163,7 +163,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/camp-details/${params.id}`),
+          fetch(`https://health-hub-server.vercel.app/camp-details/${params.id}`),
       },
       {
         path: "update-upcoming-camp/:id",
@@ -173,7 +173,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/upcoming-camps/${params.id}`),
+          fetch(`https://health-hub-server.vercel.app/upcoming-camps/${params.id}`),
       },
       {
         path: "update-registered-camp/:id",

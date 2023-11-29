@@ -36,7 +36,7 @@ const SignUp = () => {
             email: data.email,
             role: "participant",
           };
-          axios.post("http://localhost:5000/users", userInfo).then((res) => {
+          axios.post("https://health-hub-server.vercel.app/users", userInfo).then((res) => {
             if (res.data.insertedId) {
               console.log("user added to the database");
               reset();

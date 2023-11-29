@@ -41,7 +41,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      const response = await fetch(`http://localhost:5000/user/${user.email}`, {
+      const response = await fetch(`https://health-hub-server.vercel.app/user/${user.email}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
