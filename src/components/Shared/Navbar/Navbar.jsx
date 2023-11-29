@@ -4,17 +4,10 @@ import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useQuery } from "@tanstack/react-query";
-import { getUser } from "../../../api/users";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user: currentUser, logOut } = useAuth();
-
-  const { data: user = {} } = useQuery({
-    queryKey: ["user"],
-    queryFn: () => getUser(currentUser.email),
-  });
+  const { user, logOut } = useAuth();
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {

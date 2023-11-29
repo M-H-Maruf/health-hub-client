@@ -22,7 +22,7 @@ Use the following credentials to experience different roles in Health Hub.
 
 ## Project Features
 
-This website offers
+This website offers:
 
 - Role based dashboard
 - Firebase authentication
