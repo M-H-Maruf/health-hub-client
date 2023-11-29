@@ -3,6 +3,7 @@ import { getAllCamps } from "../../api/camps";
 import Section from "../../components/utils/Section";
 import Particle from "./../../components/utils/Particle";
 import Card from "../../components/availableCamps/Card";
+import { Helmet } from "react-helmet-async";
 
 const AvailableCamps = () => {
   const { data: camps = [] } = useQuery({
@@ -13,6 +14,9 @@ const AvailableCamps = () => {
 
   return (
     <div className="bg-black/40 pt-10">
+      <Helmet>
+        <title>Health Hub | Available Camps</title>
+      </Helmet>
       <Particle></Particle>
       <Section
         heading={"Available Camps"}

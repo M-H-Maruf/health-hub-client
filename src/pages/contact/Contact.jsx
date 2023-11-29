@@ -5,6 +5,7 @@ import Section from "../../components/utils/Section";
 import Particle from "./../../components/utils/Particle";
 import { useEffect, useRef, useState } from "react";
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet-async";
 
 const AvailableCamps = () => {
   const form = useRef();
@@ -63,6 +64,9 @@ const AvailableCamps = () => {
 
   return (
     <div className="bg-black/40 pt-10">
+      <Helmet>
+        <title>Health Hub | Contact us</title>
+      </Helmet>
       <Particle></Particle>
       <Section
         heading={"Contact Us"}

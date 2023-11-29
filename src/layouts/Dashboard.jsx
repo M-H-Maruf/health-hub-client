@@ -11,6 +11,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import ProfessionalMenu from "../components/dashboard/menu/ProfessionalMenu";
 import OrganizerMenu from "../components/dashboard/menu/OrganizerMenu";
+import { Helmet } from "react-helmet-async";
 const Dashboard = () => {
   const { logOut, user: currentUser, update } = useAuth();
   
@@ -52,6 +53,9 @@ const Dashboard = () => {
   };
   return (
     <div className="relative min-h-screen md:flex">
+      <Helmet>
+        <title>Health Hub | Dashboard</title>
+      </Helmet>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">

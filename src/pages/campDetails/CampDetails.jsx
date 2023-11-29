@@ -4,11 +4,15 @@ import Tilt from "react-parallax-tilt";
 import Particle from "../../components/utils/Particle";
 import Section from "../../components/utils/Section";
 import JoinNowButton from './../../components/shared/JoinNowButton';
+import { Helmet } from "react-helmet-async";
 
 const CampDetails = () => {
   const camp = useLoaderData();
   return (
     <div className="bg-black/40 pt-10">
+      <Helmet>
+        <title>Health Hub | Camp Details</title>
+      </Helmet>
       <Particle></Particle>
       <Section
         heading={"Camp Details"}
