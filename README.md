@@ -25,7 +25,7 @@ Use the following credentials to experience different roles in Health Hub.
 This website offers:
 
 - Role based dashboard
-- Firebase authentication
+- Firebase authentication using email and password
 - Dynamic UI/UX integrated with MongoDB
 - Stripe payment gateway
 - Seamless animations and transitions
